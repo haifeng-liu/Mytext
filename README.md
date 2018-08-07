@@ -1,5 +1,8 @@
 
-1、添加application并集成baseapplication:
+1、添加application并集成baseapplication；
+
+
+
 2、侧滑菜单：
          @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
