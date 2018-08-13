@@ -11,9 +11,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
+//
+//import butterknife.Bind;
+//import butterknife.ButterKnife;
 
 /**
  * Created by liuhaifeng on 2018/3/11.
@@ -27,8 +27,6 @@ public abstract class BaseFragment extends Fragment {
     public abstract void initView();
 
     protected abstract View getContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
@@ -52,6 +50,6 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
     }
 }

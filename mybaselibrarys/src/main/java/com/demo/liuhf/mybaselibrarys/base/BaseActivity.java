@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
+//import butterknife.Bind;
+//import butterknife.ButterKnife;
 
 
 /**
@@ -30,7 +30,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
 
         if (null == view) {
             view = onCreateview();
@@ -58,6 +58,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
     }
 }
