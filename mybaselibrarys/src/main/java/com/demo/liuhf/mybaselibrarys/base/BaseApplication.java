@@ -1,6 +1,7 @@
 package com.demo.liuhf.mybaselibrarys.base;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.yanzhenjie.nohttp.InitializationConfig;
 import com.yanzhenjie.nohttp.NoHttp;
@@ -18,6 +19,7 @@ import com.yanzhenjie.nohttp.rest.RequestQueue;
 
 public class BaseApplication extends Application {
     private static Application _instance;
+    public static Context context;
     /**
      * 请求队列。
      */
@@ -26,6 +28,7 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         _instance = this;
+        context=this;
         // 如果你需要自定义配置：
 
         NoHttp.initialize(InitializationConfig.newBuilder(this)
