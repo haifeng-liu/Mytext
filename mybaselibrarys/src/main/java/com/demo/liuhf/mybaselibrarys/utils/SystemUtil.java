@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
 /**
  * 创建人：liuhaifeng
  * 时间：2018/8/16.
- * 描述：
+ * 描述：获取设备信息工具类
  * 修改历史：
  */
 
