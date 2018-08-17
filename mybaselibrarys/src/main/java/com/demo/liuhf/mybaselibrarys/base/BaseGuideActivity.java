@@ -28,39 +28,18 @@ import java.util.ArrayList;
  */
 
 public abstract class BaseGuideActivity extends AppCompatActivity {
-    private final String TAG = "WELCOME";
+    private final String TAG = "Guide";
     public static VpAdapter vpAdapter;
     public static int[] imgs = null;
     public static ArrayList<ImageView> imageViews;
     private ImageView[] dotViews;//小圆点
-
     ActivityBasewelcomeBinding basewelcomeBinding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences sharedPreferences = this.getSharedPreferences("share", MODE_PRIVATE);
-        boolean isFirstRun = sharedPreferences.getBoolean("isFirstRun", true);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        if (isFirstRun) {
-            Log.d(TAG, "first");
-            //第一次登陆
-            initview();
-            editor.putBoolean("isFirstRun", false);
-            editor.commit();
-        } else {
-            Log.d(TAG, "Nofirst");
-
-            //非第一次登陆
-            NoFirst();
-        }
-
-
+        initview();
     }
-
-
-
-
 
     /**
      * 绑定布局
@@ -100,9 +79,9 @@ public abstract class BaseGuideActivity extends AppCompatActivity {
     }
 
     /**
-     *添加引导图片
+     * 添加引导图片
      */
-    private void addImage(){
+    private void addImage() {
         //设置每一张图片都填充窗口
         ViewPager.LayoutParams mParams = new ViewPager.LayoutParams();
         imageViews = new ArrayList<ImageView>();
@@ -113,7 +92,7 @@ public abstract class BaseGuideActivity extends AppCompatActivity {
             iv.setScaleType(ImageView.ScaleType.FIT_XY);//这里也是一个图片的适配
             imageViews.add(iv);
 
-            if (i==imgs.length-1){
+            if (i == imgs.length - 1) {
                 iv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -127,7 +106,7 @@ public abstract class BaseGuideActivity extends AppCompatActivity {
 
     /**
      * 添加小圆点
-     * */
+     */
     private void initDots() {
         LinearLayout layout = (LinearLayout) findViewById(R.id.dot_Layout);
         LinearLayout.LayoutParams mParams = new LinearLayout.LayoutParams(20, 20);
@@ -213,13 +192,9 @@ public abstract class BaseGuideActivity extends AppCompatActivity {
      */
     public abstract void initImag();
 
-    /**
-     * 非第一次跳转到欢迎界面
-     */
-    public abstract void NoFirst();
 
     /**
      * 第一次点击最后一页跳转的界面
-     * */
+     */
     public abstract void Fisrt();
 }

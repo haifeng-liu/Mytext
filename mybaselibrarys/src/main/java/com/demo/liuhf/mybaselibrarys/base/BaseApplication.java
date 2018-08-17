@@ -17,7 +17,7 @@ import com.yanzhenjie.nohttp.rest.RequestQueue;
  * 修改历史：
  */
 
-public class BaseApplication extends Application {
+public abstract class BaseApplication extends Application {
     private static Application _instance;
     public static Context context;
     /**
@@ -48,7 +48,7 @@ public class BaseApplication extends Application {
                 .networkExecutor(new URLConnectionNetworkExecutor())
                 .build()
         );
-
+        getLogin();
     }
 
     public static RequestQueue getQueue(){
@@ -60,4 +60,11 @@ public class BaseApplication extends Application {
     public static Application getInstance() {
         return _instance;
     }
+
+    /**
+     * 保存登陆信息
+     * */
+    public abstract void getLogin();
+
+
 }
