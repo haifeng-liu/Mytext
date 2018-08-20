@@ -19,7 +19,7 @@ import com.demo.liuhf.mybaselibrarys.databinding.ActivityBasestartupBinding;
  */
 
 public abstract class BaseStartUpActivity extends AppCompatActivity {
-    private final String TAG = "StartUp";
+    public static final String TAG="StartUp";
     public static String savename="";
     ActivityBasestartupBinding binding;
     public static int imagid = 0;

@@ -28,7 +28,7 @@ import java.util.ArrayList;
  */
 
 public abstract class BaseGuideActivity extends AppCompatActivity {
-    private final String TAG = "Guide";
+    public static final String TAG="Guide";
     public static VpAdapter vpAdapter;
     public static int[] imgs = null;
     public static ArrayList<ImageView> imageViews;

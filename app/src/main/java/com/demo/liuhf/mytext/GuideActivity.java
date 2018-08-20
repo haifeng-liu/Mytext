@@ -1,5 +1,7 @@
 package com.demo.liuhf.mytext;
 
+import android.content.Intent;
+
 import com.demo.liuhf.mybaselibrarys.base.BaseGuideActivity;
 
 /**
@@ -18,6 +20,6 @@ public class GuideActivity extends BaseGuideActivity {
 
     @Override
     public void Fisrt() {
-
+        startActivity(new Intent(this,LoginActivity.class));
     }
 }

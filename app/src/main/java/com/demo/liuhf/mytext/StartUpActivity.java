@@ -1,6 +1,8 @@
 package com.demo.liuhf.mytext;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
 
 import com.demo.liuhf.mybaselibrarys.base.BaseStartUpActivity;
 
@@ -30,6 +32,14 @@ public class StartUpActivity extends BaseStartUpActivity {
 
     @Override
     public void goother() {
+        SharedPreferences sharedPreferences =this.getSharedPreferences(savename!=null?savename:"Login", MODE_PRIVATE);
+
+        if (sharedPreferences.getBoolean("isLogin" ,false)){
+            startActivity(new Intent(this,MainActivity.class));
+        }else{
+            startActivity(new Intent(this,LoginActivity.class));
+
+        }
 
     }
 }

@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 
 public abstract class BaseLoginActivity extends AppCompatActivity{
 
+    public static final String TAG="Login";
     public  static String savename="";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

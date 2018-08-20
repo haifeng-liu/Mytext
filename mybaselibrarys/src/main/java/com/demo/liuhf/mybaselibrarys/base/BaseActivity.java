@@ -30,8 +30,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-//        ButterKnife.bind(this);
-
         if (null == view) {
             view = onCreateview();
         }
@@ -41,7 +39,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void setContentView(View view) {
         super.setContentView(view);
-
     }
 
     @Override
