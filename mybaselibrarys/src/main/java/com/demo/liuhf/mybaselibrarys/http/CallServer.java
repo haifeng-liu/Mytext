@@ -58,8 +58,8 @@ public class CallServer {
         mRequestQueue.stop();
     }
 
-    public <T> void request(Object activity, int what, Request<T> request, HttpListener<T> callback, boolean canCancel, boolean isLoading) {
-        mRequestQueue.add(what, request, new HttpResponseListener<>(activity, request, callback, canCancel, isLoading));
+    public <T> void request(Object activity, int what, Request<T> request, HttpListener<T> callback, boolean canCancel) {
+        mRequestQueue.add(what, request, new HttpResponseListener<>(activity, request, callback, canCancel));
     }
 
     public void download(int what, DownloadRequest request, DownloadListener listener) {

@@ -1,13 +1,18 @@
 package com.demo.liuhf.mybaselibrarys.base;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.demo.liuhf.mybaselibrarys.http.BaseHttpUtil;
 
 
 //import butterknife.Bind;
@@ -21,10 +26,12 @@ import android.widget.LinearLayout;
 public abstract class BaseActivity extends AppCompatActivity {
 
     private View view;
+    private String TAG="BaseActivity";
 
     public abstract void initview();
 
     public abstract View onCreateview();
+    public abstract Activity  close();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,6 +41,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             view = onCreateview();
         }
         initview();
+        Log.d(TAG,close().toString());
     }
 
     @Override
@@ -55,6 +63,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        ButterKnife.unbind(this);
+       if(close()!=null){
+           BaseHttpUtil.cancle(close());
+       }
+
     }
 }

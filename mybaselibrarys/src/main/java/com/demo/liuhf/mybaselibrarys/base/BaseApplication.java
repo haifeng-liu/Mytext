@@ -24,18 +24,19 @@ public abstract class BaseApplication extends Application {
      * 请求队列。
      */
     public static RequestQueue mQueue;
+    public abstract int connectionTime();
+    public abstract int readTime();
     @Override
     public void onCreate() {
         super.onCreate();
         _instance = this;
         context=this;
         // 如果你需要自定义配置：
-
         NoHttp.initialize(InitializationConfig.newBuilder(this)
                 // 设置全局连接超时时间，单位毫秒，默认10s。
-                .connectionTimeout(30 * 1000)
+                .connectionTimeout((connectionTime()!=0?connectionTime():30) * 1000)
                 // 设置全局服务器响应超时时间，单位毫秒，默认10s。
-                .readTimeout(30 * 1000)
+                .readTimeout((readTime()!=0?readTime():30) * 1000)
                 // 配置缓存，默认保存数据库DBCacheStore，保存到SD卡使用DiskCacheStore。
                 .cacheStore(
                         new DBCacheStore(this).setEnable(true) // 如果不使用缓存，设置setEnable(false)禁用。

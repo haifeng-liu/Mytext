@@ -10,10 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.demo.liuhf.mybaselibrarys.http.BaseHttpUtil;
 
-//
-//import butterknife.Bind;
-//import butterknife.ButterKnife;
 
 /**
  * Created by liuhaifeng on 2018/3/11.
@@ -25,6 +23,8 @@ public abstract class BaseFragment extends Fragment {
     public ImageView imgErrors;
 
     public abstract void initView();
+
+    public abstract Fragment close();
 
     protected abstract View getContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
@@ -50,6 +50,8 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-//        ButterKnife.unbind(this);
+        if (close()!=null){
+            BaseHttpUtil.cancle(close());
+        }
     }
 }
