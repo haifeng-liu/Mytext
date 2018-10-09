@@ -28,6 +28,7 @@ public class StartUpActivity extends BaseStartUpActivity {
     @Override
     public void goGuide() {
         startActivity(new Intent(this, GuideActivity.class));
+        finish();
     }
 
     @Override
@@ -36,8 +37,10 @@ public class StartUpActivity extends BaseStartUpActivity {
 
         if (sharedPreferences.getBoolean("isLogin" ,false)){
             startActivity(new Intent(this,MainActivity.class));
+            finish();
         }else{
             startActivity(new Intent(this,LoginActivity.class));
+            finish();
 
         }
 

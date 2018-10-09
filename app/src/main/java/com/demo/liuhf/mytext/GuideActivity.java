@@ -21,5 +21,6 @@ public class GuideActivity extends BaseGuideActivity {
     @Override
     public void Fisrt() {
         startActivity(new Intent(this,LoginActivity.class));
+        finish();
     }
 }

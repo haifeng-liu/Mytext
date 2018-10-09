@@ -20,9 +20,22 @@ public class App extends BaseApplication{
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
-//        Beta.installTinker(this);
     }
 
+/**
+ * 设置网络连接时间  为0时默认为30*1000
+ * */
+    @Override
+    public int connectionTime() {
+        return 0;
+    }
+    /**
+     * 设置网络响应时间 为0时默认为30*1000
+     * */
+    @Override
+    public int readTime() {
+        return 0;
+    }
 
     @Override
     public void getLogin() {

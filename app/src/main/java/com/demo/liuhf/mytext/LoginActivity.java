@@ -25,6 +25,7 @@ public class LoginActivity extends BaseLoginActivity{
         Toast.makeText(this,"跳转main",Toast.LENGTH_SHORT).show();
         Log.d(TAG,"跳转main");
         startActivity(new Intent(this,MainActivity.class));
+        finish();
     }
 
     @Override
